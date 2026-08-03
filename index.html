@@ -1633,17 +1633,27 @@
         return 'frame_' + s + '.jpg';
       }
 
+      var lastDrawnImage = null;
+
       function isImageReady(idx) {
         return idx >= 0 && idx < TOTAL_FRAMES && images[idx] && images[idx].complete && images[idx].naturalWidth > 0;
       }
 
       function getNearestImage(index) {
         if (isImageReady(index)) return images[index];
-        for (var offset = 1; offset < TOTAL_FRAMES; offset++) {
+
+        // 1. Search backwards first to prevent jumping into distant future frames
+        for (var offset = 1; offset <= index; offset++) {
           if (isImageReady(index - offset)) return images[index - offset];
-          if (isImageReady(index + offset)) return images[index + offset];
         }
-        return null;
+
+        // 2. Search small forward window (max 5 frames ahead)
+        for (var f = 1; f <= 5 && (index + f) < TOTAL_FRAMES; f++) {
+          if (isImageReady(index + f)) return images[index + f];
+        }
+
+        // 3. Fallback to last successfully drawn frame to guarantee smooth continuous transition
+        return lastDrawnImage;
       }
 
       function drawImage(img, opacity) {
@@ -1676,6 +1686,7 @@
 
         var imgA = isImageReady(lo) ? images[lo] : getNearestImage(lo);
         if (imgA) {
+          lastDrawnImage = imgA;
           drawImage(imgA, 1.0);
         }
 
@@ -1765,8 +1776,8 @@
             renderCurrentFrame();
           }
 
-          // Unblock page interactivity early once first keyframes are ready
-          if (loadedCount >= 15 && !loader.classList.contains('hidden')) {
+          // Unblock page once a smooth initial buffer of keyframes is ready
+          if (loadedCount >= 40 && !loader.classList.contains('hidden')) {
             setTimeout(function () {
               loader.classList.add('hidden');
             }, 100);
