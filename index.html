@@ -85,7 +85,7 @@
       pointer-events: none;
     }
 
-    /* Radiant Sky Atmosphere Overlay - Lightened so Scroll Animation is Bright & Vivid */
+    /* Radiant Sunlit Sky Atmosphere Overlay - Ultra Bright & Vivid */
     .canvas-overlay {
       position: fixed;
       top: 0;
@@ -93,8 +93,8 @@
       width: 100vw;
       height: 100vh;
       background: 
-        radial-gradient(ellipse at 50% 20%, rgba(180, 225, 255, 0.08) 0%, rgba(30, 60, 110, 0.05) 50%, rgba(5, 5, 8, 0.15) 100%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(5, 5, 8, 0.05) 100%);
+        radial-gradient(ellipse at 50% 25%, rgba(200, 235, 255, 0.22) 0%, rgba(120, 185, 255, 0.1) 45%, rgba(5, 5, 8, 0.02) 100%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 50%);
       z-index: 2;
       pointer-events: none;
     }
@@ -230,6 +230,7 @@
     }
 
     /* Hero / Welcome Scene Section (Cloud Phase) */
+    /* Hero / Welcome Scene Section (Bright Cloud Sky Phase) */
     .hero-scene {
       height: 140vh;
       display: flex;
@@ -239,17 +240,18 @@
       text-align: center;
       padding: 0 20px;
       position: relative;
+      background: radial-gradient(ellipse at 50% 35%, rgba(180, 230, 255, 0.38) 0%, rgba(90, 160, 240, 0.16) 50%, rgba(0, 0, 0, 0) 85%);
     }
 
     .welcome-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(10, 16, 32, 0.85);
-      -webkit-backdrop-filter: blur(14px);
-      backdrop-filter: blur(14px);
-      border: 1px solid rgba(147, 197, 253, 0.5);
-      color: #93C5FD;
+      background: rgba(255, 255, 255, 0.15);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(147, 197, 253, 0.8);
+      color: #FFFFFF;
       padding: 9px 24px;
       border-radius: 30px;
       font-family: 'OCR-B', 'OCR A Std', 'OCR-A', 'Share Tech Mono', 'Space Mono', monospace;
@@ -258,8 +260,8 @@
       letter-spacing: 3px;
       text-transform: uppercase;
       margin-bottom: 24px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(147, 197, 253, 0.2);
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 25px rgba(147, 197, 253, 0.45);
+      text-shadow: 0 0 10px #93C5FD, 0 2px 8px rgba(0, 0, 0, 0.9);
     }
 
     .hero-title {
@@ -290,13 +292,13 @@
       line-height: 1.65;
       margin-bottom: 36px;
       font-weight: 500;
-      background: rgba(10, 14, 26, 0.75);
+      background: rgba(10, 14, 26, var(--card-opacity-val, 0.38));
       padding: 12px 28px;
       border-radius: 16px;
-      -webkit-backdrop-filter: blur(16px);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
       text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
     }
 
@@ -2110,7 +2112,7 @@
         var dy = (cH - dh) * 0.5;
 
         ctx.globalAlpha = opacity;
-        ctx.filter = 'brightness(1.22) contrast(1.08) saturate(1.10)';
+        ctx.filter = 'brightness(1.35) contrast(1.12) saturate(1.15)';
         ctx.drawImage(img, 0, 0, iW, iH, dx, dy, dw, dh);
         ctx.filter = 'none';
       }
@@ -2122,7 +2124,7 @@
         var frac = bounded - lo;
 
         ctx.globalAlpha = 1.0;
-        ctx.fillStyle = '#050508';
+        ctx.fillStyle = '#0e1726';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         var imgA = isImageReady(lo) ? images[lo] : getNearestImage(lo);
@@ -2364,7 +2366,7 @@
             this.speedX = (Math.random() * 0.45 + 0.2);
             this.floatSpeedY = (Math.random() * 0.0018 + 0.0006);
             this.floatPhase = Math.random() * Math.PI * 2;
-            this.opacity = Math.random() * 0.45 + 0.4;
+            this.opacity = Math.random() * 0.3 + 0.65;
             this.type = Math.floor(Math.random() * 3);
             this.rotation = (Math.random() - 0.5) * 0.1;
             this.parallaxFactor = (this.size / 480) * 0.85 + 0.25;
