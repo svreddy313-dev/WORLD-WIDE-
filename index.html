@@ -33,16 +33,16 @@
 
     :root {
       --bg-dark: #0f172a;
-      --card-bg: rgba(255, 255, 255, 0.15);
-      --card-hover: rgba(255, 255, 255, 0.28);
-      --card-opacity-val: 0.16;
+      --card-bg: rgba(10, 14, 26, 0.12);
+      --card-hover: rgba(20, 26, 44, 0.28);
+      --card-opacity-val: 0.12;
       --accent: #FF5533;
       --accent-glow: rgba(255, 85, 51, 0.5);
       --text-main: #FFFFFF;
       --text-muted: rgba(255, 255, 255, 0.95);
-      --text-dim: rgba(255, 255, 255, 0.75);
-      --border-color: rgba(255, 255, 255, 0.25);
-      --border-accent: rgba(255, 85, 51, 0.65);
+      --text-dim: rgba(255, 255, 255, 0.78);
+      --border-color: rgba(255, 255, 255, 0.28);
+      --border-accent: rgba(255, 85, 51, 0.7);
     }
 
     html {
@@ -243,10 +243,10 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(10, 14, 26, 0.85);
-      -webkit-backdrop-filter: blur(16px);
-      backdrop-filter: blur(16px);
-      border: 2px solid var(--accent);
+      background: rgba(10, 14, 26, var(--card-opacity-val, 0.12));
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+      border: 1.5px solid var(--accent);
       color: #FFFFFF;
       padding: 9px 24px;
       border-radius: 30px;
@@ -256,7 +256,7 @@
       letter-spacing: 3px;
       text-transform: uppercase;
       margin-bottom: 24px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.75), 0 0 25px var(--accent-glow);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3), 0 0 20px var(--accent-glow);
       text-shadow: 0 2px 10px rgba(0, 0, 0, 1);
     }
 
@@ -288,13 +288,13 @@
       line-height: 1.65;
       margin-bottom: 36px;
       font-weight: 600;
-      background: rgba(10, 14, 26, 0.82);
+      background: rgba(10, 14, 26, var(--card-opacity-val, 0.12));
       padding: 14px 30px;
       border-radius: 16px;
-      -webkit-backdrop-filter: blur(16px);
-      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
       border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.75);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
       text-shadow: 0 2px 12px rgba(0, 0, 0, 1);
     }
 
@@ -311,33 +311,14 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       animation: bounce 2s infinite;
-      background: rgba(10, 14, 26, 0.88);
+      background: rgba(10, 14, 26, var(--card-opacity-val, 0.12));
       padding: 12px 28px;
       border-radius: 30px;
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
       border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
       text-shadow: 0 2px 10px rgba(0, 0, 0, 1);
-    }
-
-    .scroll-indicator {
-      position: absolute;
-      bottom: 50px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      color: #FFFFFF;
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      animation: bounce 2s infinite;
-      background: rgba(10, 16, 32, 0.85);
-      padding: 12px 28px;
-      border-radius: 30px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(96, 165, 250, 0.3);
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
     }
 
     @keyframes bounce {
@@ -407,22 +388,22 @@
 
     /* Cards & Layout Grid */
     .glass-card {
-      background: rgba(10, 14, 26, var(--card-opacity-val, 0.38));
-      -webkit-backdrop-filter: blur(8px);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(10, 14, 26, var(--card-opacity-val, 0.12));
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
       border-radius: 16px;
       padding: 36px;
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       margin-bottom: 40px;
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
     }
 
     .glass-card:hover {
-      background: rgba(20, 26, 44, calc(var(--card-opacity-val, 0.38) + 0.15));
+      background: rgba(20, 26, 44, calc(var(--card-opacity-val, 0.12) + 0.16));
       border-color: var(--border-accent);
       transform: translateY(-4px);
-      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.45), 0 0 25px var(--accent-glow);
+      box-shadow: 0 14px 38px rgba(0, 0, 0, 0.35), 0 0 25px var(--accent-glow);
     }
 
     /* About Section Layout (Inspired by Reference UI) */
@@ -1512,7 +1493,7 @@
 
     <div class="nav-actions">
       <button id="toggle-glass-btn" class="clouds-toggle-pill" onclick="window.toggleGlassTransparency()">
-        <span class="cloud-icon">💎</span> Glass: Clear (35%)
+        <span class="cloud-icon">💎</span> Glass: Ultra Clear (12%)
       </button>
       <button id="toggle-clouds-btn" class="clouds-toggle-pill hide-on-mobile" onclick="window.toggleCloudMode()">
         <span class="cloud-icon">☁</span> Clouds: Vivid
@@ -2583,10 +2564,10 @@
 
         var glassModeIndex = 0;
         var glassModes = [
-          { name: 'Clear (35%)', opacity: 0.35 },
-          { name: 'Crystal (20%)', opacity: 0.20 },
-          { name: 'Medium (55%)', opacity: 0.55 },
-          { name: 'Solid (80%)', opacity: 0.80 }
+          { name: 'Ultra Clear (12%)', opacity: 0.12 },
+          { name: 'Bare Glass (5%)', opacity: 0.05 },
+          { name: 'Translucent (30%)', opacity: 0.30 },
+          { name: 'Medium Glass (60%)', opacity: 0.60 }
         ];
 
         window.toggleGlassTransparency = function () {
