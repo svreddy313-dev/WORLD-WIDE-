@@ -33,15 +33,16 @@
 
     :root {
       --bg-dark: #050508;
-      --card-bg: rgba(18, 18, 24, 0.78);
-      --card-hover: rgba(26, 26, 36, 0.9);
+      --card-bg: rgba(10, 14, 26, 0.38);
+      --card-hover: rgba(20, 26, 42, 0.6);
+      --card-opacity-val: 0.38;
       --accent: #FF4D2D;
       --accent-glow: rgba(255, 77, 45, 0.35);
       --text-main: #FFFFFF;
-      --text-muted: rgba(255, 255, 255, 0.7);
-      --text-dim: rgba(255, 255, 255, 0.45);
-      --border-color: rgba(255, 255, 255, 0.08);
-      --border-accent: rgba(255, 77, 45, 0.4);
+      --text-muted: rgba(255, 255, 255, 0.88);
+      --text-dim: rgba(255, 255, 255, 0.65);
+      --border-color: rgba(255, 255, 255, 0.16);
+      --border-accent: rgba(255, 77, 45, 0.5);
     }
 
     html {
@@ -387,25 +388,22 @@
 
     /* Cards & Layout Grid */
     .glass-card {
-      background: rgba(12, 14, 24, 0.86);
-      -webkit-backdrop-filter: blur(20px);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(10, 14, 26, var(--card-opacity-val, 0.38));
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 16px;
       padding: 36px;
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       margin-bottom: 40px;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
     }
 
     .glass-card:hover {
-      background: rgba(20, 24, 38, 0.94);
+      background: rgba(20, 26, 44, calc(var(--card-opacity-val, 0.38) + 0.15));
       border-color: var(--border-accent);
       transform: translateY(-4px);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6), 0 0 25px var(--accent-glow);
-    }
-      transform: translateY(-4px);
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-glow);
+      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.45), 0 0 25px var(--accent-glow);
     }
 
     /* About Section Layout (Inspired by Reference UI) */
@@ -500,7 +498,9 @@
     }
 
     .mindset-card {
-      background: rgba(18, 18, 24, 0.7);
+      background: rgba(10, 14, 26, var(--card-opacity-val, 0.38));
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
       border: 1px solid var(--border-color);
       border-radius: 16px;
       overflow: hidden;
@@ -510,7 +510,7 @@
     }
 
     .mindset-card:hover {
-      background: rgba(26, 26, 36, 0.9);
+      background: rgba(20, 26, 44, calc(var(--card-opacity-val, 0.38) + 0.18));
       border-color: var(--border-accent);
       transform: translateY(-5px);
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 25px var(--accent-glow);
@@ -779,7 +779,9 @@
     }
 
     .cert-card {
-      background: rgba(18, 18, 24, 0.6);
+      background: rgba(10, 14, 26, var(--card-opacity-val, 0.38));
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
       border: 1px solid var(--border-color);
       border-radius: 12px;
       padding: 22px;
@@ -791,7 +793,7 @@
 
     .cert-card:hover {
       border-color: var(--border-accent);
-      background: rgba(26, 26, 36, 0.85);
+      background: rgba(20, 26, 44, calc(var(--card-opacity-val, 0.38) + 0.15));
       transform: translateY(-3px);
     }
 
@@ -841,7 +843,9 @@
     }
 
     .contact-info-card {
-      background: rgba(18, 18, 24, 0.6);
+      background: rgba(10, 14, 26, var(--card-opacity-val, 0.38));
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
       border: 1px solid var(--border-color);
       border-radius: 14px;
       padding: 22px;
@@ -854,7 +858,7 @@
 
     .contact-info-card:hover {
       border-color: var(--border-accent);
-      background: rgba(26, 26, 36, 0.85);
+      background: rgba(20, 26, 44, calc(var(--card-opacity-val, 0.38) + 0.15));
       transform: translateY(-3px);
     }
 
@@ -889,7 +893,9 @@
     }
 
     .contact-form {
-      background: rgba(18, 18, 24, 0.7);
+      background: rgba(10, 14, 26, var(--card-opacity-val, 0.38));
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
       border: 1px solid var(--border-color);
       border-radius: 16px;
       padding: 32px;
@@ -1486,8 +1492,11 @@
     </ul>
 
     <div class="nav-actions">
-      <button id="toggle-clouds-btn" class="clouds-toggle-pill" onclick="window.toggleCloudMode()">
-        <span class="cloud-icon">☁</span> Bright Clouds: Vivid
+      <button id="toggle-glass-btn" class="clouds-toggle-pill" onclick="window.toggleGlassTransparency()">
+        <span class="cloud-icon">💎</span> Glass: Clear (35%)
+      </button>
+      <button id="toggle-clouds-btn" class="clouds-toggle-pill hide-on-mobile" onclick="window.toggleCloudMode()">
+        <span class="cloud-icon">☁</span> Clouds: Vivid
       </button>
       <a href="mailto:saivardhanreddy313@gmail.com" class="nav-cta hide-on-mobile">Contact Me</a>
 
@@ -2550,6 +2559,24 @@
           var btn = document.getElementById('toggle-clouds-btn');
           if (btn) {
             btn.innerHTML = '<span class="cloud-icon">☁</span> Bright Clouds: ' + mode.name;
+          }
+        };
+
+        var glassModeIndex = 0;
+        var glassModes = [
+          { name: 'Clear (35%)', opacity: 0.35 },
+          { name: 'Crystal (20%)', opacity: 0.20 },
+          { name: 'Medium (55%)', opacity: 0.55 },
+          { name: 'Solid (80%)', opacity: 0.80 }
+        ];
+
+        window.toggleGlassTransparency = function () {
+          glassModeIndex = (glassModeIndex + 1) % glassModes.length;
+          var mode = glassModes[glassModeIndex];
+          document.documentElement.style.setProperty('--card-opacity-val', mode.opacity);
+          var btn = document.getElementById('toggle-glass-btn');
+          if (btn) {
+            btn.innerHTML = '<span class="cloud-icon">💎</span> Glass: ' + mode.name;
           }
         };
 
