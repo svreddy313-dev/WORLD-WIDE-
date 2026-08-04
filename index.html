@@ -85,19 +85,9 @@
       pointer-events: none;
     }
 
-    /* Radiant Ultra-Bright Sunlit Sky Atmosphere Overlay */
+    /* Dimness Overlay Removed Completely for 100% Real Frame Brightness */
     .canvas-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: 
-        radial-gradient(ellipse at 50% 30%, rgba(255, 255, 255, 0.38) 0%, rgba(180, 230, 255, 0.22) 45%, rgba(100, 160, 240, 0.1) 85%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(240, 248, 255, 0.08) 100%);
-      z-index: 2;
-      pointer-events: none;
-      mix-blend-mode: screen;
+      display: none;
     }
 
     /* Bright Clouds Interactive Control Pill */
@@ -153,29 +143,31 @@
       box-shadow: 0 0 10px var(--accent-glow);
     }
 
-    /* Fixed Top Header / Navigation */
+    /* Fixed Top Header / Navigation - Crisp High Contrast */
     header.navbar {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      padding: 20px 40px;
+      padding: 18px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       z-index: 50;
-      background: rgba(15, 23, 42, 0.35);
-      -webkit-backdrop-filter: blur(16px);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(10, 14, 26, 0.75);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     }
 
     .nav-brand {
       font-family: 'Outfit', sans-serif;
-      font-size: 1.3rem;
-      font-weight: 800;
+      font-size: 1.35rem;
+      font-weight: 900;
       letter-spacing: 1.5px;
-      color: #fff;
+      color: #FFFFFF;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
       text-decoration: none;
       display: flex;
       align-items: center;
@@ -184,6 +176,7 @@
 
     .nav-brand span {
       color: var(--accent);
+      text-shadow: 0 0 10px var(--accent-glow);
     }
 
     .nav-links {
@@ -193,16 +186,18 @@
     }
 
     .nav-links a {
-      color: var(--text-muted);
+      color: #FFFFFF;
       text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
+      font-size: 0.92rem;
+      font-weight: 600;
       letter-spacing: 0.5px;
-      transition: color 0.25s ease;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
+      transition: all 0.25s ease;
     }
 
     .nav-links a:hover {
       color: var(--accent);
+      text-shadow: 0 0 12px var(--accent-glow);
     }
 
     .nav-cta {
@@ -248,21 +243,21 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255, 255, 255, 0.15);
-      -webkit-backdrop-filter: blur(12px);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(147, 197, 253, 0.8);
+      background: rgba(10, 14, 26, 0.85);
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      border: 2px solid var(--accent);
       color: #FFFFFF;
       padding: 9px 24px;
       border-radius: 30px;
       font-family: 'OCR-B', 'OCR A Std', 'OCR-A', 'Share Tech Mono', 'Space Mono', monospace;
       font-size: 0.88rem;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 3px;
       text-transform: uppercase;
       margin-bottom: 24px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 25px rgba(147, 197, 253, 0.45);
-      text-shadow: 0 0 10px #93C5FD, 0 2px 8px rgba(0, 0, 0, 0.9);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.75), 0 0 25px var(--accent-glow);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 1);
     }
 
     .hero-title {
@@ -272,10 +267,10 @@
       line-height: 1.08;
       letter-spacing: -1px;
       color: #FFFFFF;
-      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.95), 0 0 40px rgba(0, 0, 0, 0.8);
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 1), 0 0 20px rgba(0, 0, 0, 0.95);
       margin-bottom: 20px;
       max-width: 920px;
-      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.9));
+      filter: drop-shadow(0 6px 20px rgba(0,0,0,1));
     }
 
     .hero-title span {
@@ -283,24 +278,45 @@
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 2px 12px rgba(255,77,45,0.4));
+      filter: drop-shadow(0 3px 14px rgba(0,0,0,0.9));
     }
 
     .hero-subtitle {
       font-size: clamp(1.05rem, 2vw, 1.35rem);
       color: #FFFFFF;
-      max-width: 720px;
+      max-width: 740px;
       line-height: 1.65;
       margin-bottom: 36px;
-      font-weight: 500;
-      background: rgba(10, 14, 26, var(--card-opacity-val, 0.38));
-      padding: 12px 28px;
+      font-weight: 600;
+      background: rgba(10, 14, 26, 0.82);
+      padding: 14px 30px;
       border-radius: 16px;
-      -webkit-backdrop-filter: blur(8px);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
-      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.75);
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 1);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: #FFFFFF;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+      background: rgba(10, 14, 26, 0.88);
+      padding: 12px 28px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 1);
     }
 
     .scroll-indicator {
@@ -2113,7 +2129,7 @@
         var dy = (cH - dh) * 0.5;
 
         ctx.globalAlpha = opacity;
-        ctx.filter = 'brightness(1.75) contrast(1.15) saturate(1.20)';
+        ctx.filter = 'brightness(1.50) contrast(1.10) saturate(1.10)';
         ctx.drawImage(img, 0, 0, iW, iH, dx, dy, dw, dh);
         ctx.filter = 'none';
       }
