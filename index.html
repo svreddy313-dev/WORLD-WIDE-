@@ -72,16 +72,70 @@
       pointer-events: none;
     }
 
-    /* Subtle Dark Overlay over canvas for high readability */
+    /* Fixed Fullscreen Bright Clouds Canvas Layer */
+    canvas#bright-clouds-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: block;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Radiant Sky Atmosphere Overlay - Lightened so Scroll Animation is Bright & Vivid */
     .canvas-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: radial-gradient(circle at center, rgba(5, 5, 8, 0.35) 0%, rgba(5, 5, 8, 0.85) 100%);
-      z-index: 1;
+      background: 
+        radial-gradient(ellipse at 50% 20%, rgba(180, 225, 255, 0.08) 0%, rgba(30, 60, 110, 0.05) 50%, rgba(5, 5, 8, 0.15) 100%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(5, 5, 8, 0.05) 100%);
+      z-index: 2;
       pointer-events: none;
+    }
+
+    /* Bright Clouds Interactive Control Pill */
+    .clouds-toggle-pill {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #E2E8F0;
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 0 12px rgba(147, 197, 253, 0.25);
+    }
+
+    .clouds-toggle-pill:hover {
+      background: rgba(96, 165, 250, 0.22);
+      border-color: #60A5FA;
+      color: #FFFFFF;
+      box-shadow: 0 0 20px rgba(96, 165, 250, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .clouds-toggle-pill .cloud-icon {
+      font-size: 1rem;
+      color: #93C5FD;
+      filter: drop-shadow(0 0 4px #93C5FD);
+      animation: cloudPulse 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes cloudPulse {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(-3px) scale(1.1); }
     }
 
     /* Glowing Scroll Progress Bar */
@@ -190,17 +244,21 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255, 77, 45, 0.12);
-      border: 1px solid var(--border-accent);
-      color: var(--accent);
-      padding: 8px 20px;
+      background: rgba(10, 16, 32, 0.85);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(147, 197, 253, 0.5);
+      color: #93C5FD;
+      padding: 9px 24px;
       border-radius: 30px;
       font-family: 'OCR-B', 'OCR A Std', 'OCR-A', 'Share Tech Mono', 'Space Mono', monospace;
-      font-size: 0.85rem;
-      font-weight: 600;
+      font-size: 0.88rem;
+      font-weight: 700;
       letter-spacing: 3px;
       text-transform: uppercase;
       margin-bottom: 24px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(147, 197, 253, 0.2);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
     }
 
     .hero-title {
@@ -209,12 +267,11 @@
       font-weight: 900;
       line-height: 1.08;
       letter-spacing: -1px;
-      background: linear-gradient(135deg, #FFFFFF 30%, rgba(255, 255, 255, 0.7) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 18px;
-      max-width: 900px;
+      color: #FFFFFF;
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.95), 0 0 40px rgba(0, 0, 0, 0.8);
+      margin-bottom: 20px;
+      max-width: 920px;
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.9));
     }
 
     .hero-title span {
@@ -222,29 +279,45 @@
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 12px rgba(255,77,45,0.4));
     }
 
     .hero-subtitle {
       font-size: clamp(1.05rem, 2vw, 1.35rem);
-      color: var(--text-muted);
-      max-width: 680px;
-      line-height: 1.6;
+      color: #FFFFFF;
+      max-width: 720px;
+      line-height: 1.65;
       margin-bottom: 36px;
-      font-weight: 400;
+      font-weight: 500;
+      background: rgba(10, 14, 26, 0.75);
+      padding: 12px 28px;
+      border-radius: 16px;
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95);
     }
 
     .scroll-indicator {
       position: absolute;
-      bottom: 60px;
+      bottom: 50px;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 10px;
-      color: var(--text-dim);
-      font-size: 0.8rem;
+      color: #FFFFFF;
+      font-size: 0.82rem;
+      font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
       animation: bounce 2s infinite;
+      background: rgba(10, 16, 32, 0.85);
+      padding: 12px 28px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(96, 165, 250, 0.3);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
     }
 
     @keyframes bounce {
@@ -280,12 +353,13 @@
     .section-tag {
       font-family: 'Outfit', sans-serif;
       color: var(--accent);
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 700;
       letter-spacing: 3px;
       text-transform: uppercase;
       margin-bottom: 8px;
       display: block;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
     }
 
     .section-title {
@@ -296,6 +370,7 @@
       color: var(--text-main);
       position: relative;
       display: inline-block;
+      text-shadow: 0 3px 14px rgba(0, 0, 0, 0.9);
     }
 
     .section-title::after {
@@ -307,23 +382,28 @@
       height: 3px;
       background: var(--accent);
       border-radius: 2px;
+      box-shadow: 0 0 8px var(--accent-glow);
     }
 
     /* Cards & Layout Grid */
     .glass-card {
-      background: var(--card-bg);
-      -webkit-backdrop-filter: blur(16px);
-      backdrop-filter: blur(16px);
-      border: 1px solid var(--border-color);
+      background: rgba(12, 14, 24, 0.86);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 16px;
       padding: 36px;
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       margin-bottom: 40px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
     }
 
     .glass-card:hover {
-      background: var(--card-hover);
+      background: rgba(20, 24, 38, 0.94);
       border-color: var(--border-accent);
+      transform: translateY(-4px);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6), 0 0 25px var(--accent-glow);
+    }
       transform: translateY(-4px);
       box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-glow);
     }
@@ -1042,21 +1122,337 @@
       box-shadow: 0 0 12px var(--accent);
     }
 
-    @media (max-width: 768px) {
+    /* ==========================================
+       COMPREHENSIVE RESPONSIVE DESIGN SYSTEM
+       Mobile (320px - 767px), iPad / Tablet (768px - 1024px), Desktop (1025px+)
+       ========================================== */
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Mobile & iPad Hamburger Toggle Button */
+    .mobile-nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 42px;
+      height: 38px;
+      padding: 9px 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 1002;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .mobile-nav-toggle:hover {
+      background: rgba(255, 77, 45, 0.2);
+      border-color: var(--accent);
+    }
+
+    .mobile-nav-toggle .bar {
+      width: 100%;
+      height: 2px;
+      background-color: #FFFFFF;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-nav-toggle.open .bar1 {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .mobile-nav-toggle.open .bar2 {
+      opacity: 0;
+    }
+
+    .mobile-nav-toggle.open .bar3 {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Glassmorphic Slide-Down Drawer for Mobile & iPad */
+    .mobile-menu-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 320px;
+      max-width: 85vw;
+      height: 100vh;
+      background: rgba(10, 14, 26, 0.96);
+      -webkit-backdrop-filter: blur(24px);
+      backdrop-filter: blur(24px);
+      border-left: 1px solid rgba(255, 255, 255, 0.15);
+      z-index: 1001;
+      padding: 30px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.75);
+    }
+
+    .mobile-menu-drawer.open {
+      right: 0;
+    }
+
+    .mobile-menu-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu-backdrop.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-drawer-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #93C5FD;
+    }
+
+    .mobile-drawer-close {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      color: #FFF;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s ease;
+    }
+
+    .mobile-drawer-close:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .mobile-drawer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .mobile-drawer-links a {
+      color: #E2E8F0;
+      text-decoration: none;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      transition: all 0.25s ease;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .mobile-drawer-links a:hover {
+      background: rgba(255, 77, 45, 0.15);
+      border-color: var(--accent);
+      color: #FFF;
+      transform: translateX(6px);
+    }
+
+    /* ------------------------------------------
+       TABLET & IPAD BREAKPOINT (768px - 1024px)
+       ------------------------------------------ */
+    @media (max-width: 1024px) {
       header.navbar {
-        padding: 16px 20px;
+        padding: 16px 24px;
       }
 
+      .nav-links {
+        gap: 16px;
+      }
+
+      .nav-links a {
+        font-size: 0.82rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 240px 1fr;
+        gap: 28px;
+      }
+
+      .mindset-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .portfolio-wrapper {
+        padding: 40px 20px 100px 20px;
+      }
+
+      .glass-card {
+        padding: 28px;
+      }
+    }
+
+    /* ------------------------------------------
+       MOBILE SMARTPHONE BREAKPOINT (under 768px)
+       ------------------------------------------ */
+    @media (max-width: 767px) {
       .nav-links {
         display: none;
       }
 
+      .mobile-nav-toggle {
+        display: flex;
+      }
+
+      .hide-on-mobile {
+        display: none !important;
+      }
+
+      header.navbar {
+        padding: 14px 18px;
+      }
+
+      .clouds-toggle-pill {
+        padding: 6px 12px;
+        font-size: 0.76rem;
+      }
+
+      .hero-scene {
+        height: auto;
+        min-height: 100vh;
+        padding: 110px 16px 60px 16px;
+      }
+
+      .welcome-badge {
+        font-size: 0.75rem;
+        padding: 7px 16px;
+        letter-spacing: 1.5px;
+      }
+
+      .hero-title {
+        font-size: clamp(2.1rem, 9vw, 3.2rem);
+        margin-bottom: 14px;
+      }
+
+      .hero-subtitle {
+        font-size: 0.95rem;
+        padding: 10px 16px;
+        line-height: 1.55;
+      }
+
+      .scroll-indicator {
+        position: relative;
+        bottom: auto;
+        margin-top: 30px;
+        font-size: 0.74rem;
+        padding: 10px 20px;
+      }
+
       .about-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        text-align: center;
+      }
+
+      .about-hero-photo-card {
+        max-width: 260px;
+        margin: 0 auto;
+      }
+
+      .contact-pills {
+        justify-content: center;
+      }
+
+      .pill-item {
+        font-size: 0.8rem;
+        padding: 7px 14px;
+      }
+
+      .mindset-grid {
         grid-template-columns: 1fr;
       }
 
+      .intel-metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .intel-metric-box {
+        padding: 14px;
+      }
+
+      .contact-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
       .glass-card {
-        padding: 24px;
+        padding: 20px 16px;
+        margin-bottom: 24px;
+        border-radius: 14px;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .floating-actions {
+        bottom: 20px;
+        left: 20px;
+      }
+
+      .floating-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+    }
+
+    /* ------------------------------------------
+       EXTRA SMALL MOBILE PHONES (under 400px)
+       ------------------------------------------ */
+    @media (max-width: 400px) {
+      .hero-title {
+        font-size: 1.85rem;
+      }
+
+      .clouds-toggle-pill {
+        font-size: 0.7rem;
+        padding: 5px 10px;
+      }
+
+      .intel-metrics-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -1088,8 +1484,42 @@
       <li><a href="#education">Education</a></li>
       <li><a href="#certificates">Certificates</a></li>
     </ul>
-    <a href="mailto:saivardhanreddy313@gmail.com" class="nav-cta">Contact Me</a>
+
+    <div class="nav-actions">
+      <button id="toggle-clouds-btn" class="clouds-toggle-pill" onclick="window.toggleCloudMode()">
+        <span class="cloud-icon">☁</span> Bright Clouds: Vivid
+      </button>
+      <a href="mailto:saivardhanreddy313@gmail.com" class="nav-cta hide-on-mobile">Contact Me</a>
+
+      <!-- Mobile & iPad Hamburger Toggle Button -->
+      <button class="mobile-nav-toggle" id="mobile-nav-btn" aria-label="Toggle Navigation Menu" onclick="window.toggleMobileMenu()">
+        <span class="bar bar1"></span>
+        <span class="bar bar2"></span>
+        <span class="bar bar3"></span>
+      </button>
+    </div>
   </header>
+
+  <!-- Mobile & iPad Navigation Backdrop & Slide Drawer -->
+  <div class="mobile-menu-backdrop" id="mobile-backdrop" onclick="window.toggleMobileMenu()"></div>
+  <div class="mobile-menu-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <span class="mobile-drawer-title">☁ SVR313 NAVIGATION</span>
+      <button class="mobile-drawer-close" onclick="window.toggleMobileMenu()" aria-label="Close Menu">✕</button>
+    </div>
+    <ul class="mobile-drawer-links">
+      <li><a href="#about" onclick="window.toggleMobileMenu()">👤 About</a></li>
+      <li><a href="#skills" onclick="window.toggleMobileMenu()">⚡ Technical Skills</a></li>
+      <li><a href="#mindset" onclick="window.toggleMobileMenu()">🧠 Mindset & Focus</a></li>
+      <li><a href="#intellectual" onclick="window.toggleMobileMenu()">🔬 AI Research</a></li>
+      <li><a href="#experience" onclick="window.toggleMobileMenu()">💼 Experience</a></li>
+      <li><a href="#education" onclick="window.toggleMobileMenu()">🎓 Education</a></li>
+      <li><a href="#certificates" onclick="window.toggleMobileMenu()">📜 Certificates</a></li>
+    </ul>
+    <div class="mobile-drawer-footer">
+      <a href="mailto:saivardhanreddy313@gmail.com" class="nav-cta" style="width: 100%; text-align: center; display: block; box-shadow: 0 4px 15px var(--accent-glow);">✉ Contact Me</a>
+    </div>
+  </div>
 
   <!-- Fullscreen HD Animation Canvas -->
   <canvas id="frame-canvas"></canvas>
@@ -1671,7 +2101,9 @@
         var dy = (cH - dh) * 0.5;
 
         ctx.globalAlpha = opacity;
+        ctx.filter = 'brightness(1.22) contrast(1.08) saturate(1.10)';
         ctx.drawImage(img, 0, 0, iW, iH, dx, dy, dw, dh);
+        ctx.filter = 'none';
       }
 
       function renderAtPosition(pos) {
@@ -1856,6 +2288,290 @@
         Object.freeze(window.handleContactSubmit);
         Object.freeze(window.scrollToTop);
       } catch (err) { }
+
+      /* ==========================================
+         DYNAMIC BRIGHT CLOUDS CANVAS ENGINE
+         ========================================== */
+      (function () {
+        var cCanvas = document.getElementById('bright-clouds-canvas');
+        if (!cCanvas) return;
+        var cCtx = cCanvas.getContext('2d');
+        if (!cCtx) return;
+
+        var clouds = [];
+        var cloudPuffs = [];
+        var cloudModeIndex = 0; // 0: Vivid Bright, 1: Soft Mist, 2: Sunlit Gold, 3: Off
+        var cloudModes = [
+          { name: 'Vivid Bright', count: 32, opacityMultiplier: 1.0, speedScale: 1.0 },
+          { name: 'Soft Mist', count: 20, opacityMultiplier: 0.6, speedScale: 0.7 },
+          { name: 'Sunlit Gold', count: 25, opacityMultiplier: 0.9, speedScale: 1.1 },
+          { name: 'Off', count: 0, opacityMultiplier: 0.0, speedScale: 0.0 }
+        ];
+
+        var cloudImg1 = new Image();
+        cloudImg1.src = 'bright_cloud_texture.png';
+        var cloudImg2 = new Image();
+        cloudImg2.src = 'bright_cloud_wispy.png';
+
+        var mouseX = window.innerWidth / 2;
+        var mouseY = window.innerHeight / 2;
+        var targetMouseX = mouseX;
+        var targetMouseY = mouseY;
+
+        window.addEventListener('mousemove', function (e) {
+          targetMouseX = e.clientX;
+          targetMouseY = e.clientY;
+        }, { passive: true });
+
+        window.addEventListener('click', function (e) {
+          if (cloudModeIndex === 3) return;
+          spawnCloudPuffCluster(e.clientX, e.clientY);
+        });
+
+        function resizeCloudCanvas() {
+          var dpr = window.devicePixelRatio || 1;
+          var w = window.innerWidth;
+          var h = window.innerHeight;
+          cCanvas.width = Math.round(w * dpr);
+          cCanvas.height = Math.round(h * dpr);
+          cCanvas.style.width = w + 'px';
+          cCanvas.style.height = h + 'px';
+          cCtx.imageSmoothingEnabled = true;
+          if (cCtx.imageSmoothingQuality) cCtx.imageSmoothingQuality = 'high';
+        }
+
+        window.addEventListener('resize', resizeCloudCanvas, { passive: true });
+        resizeCloudCanvas();
+
+        function CloudParticle(isInitial) {
+          var w = window.innerWidth;
+          var h = window.innerHeight;
+
+          this.reset = function (fromLeft) {
+            this.x = fromLeft ? -280 - Math.random() * 200 : (isInitial ? Math.random() * (w + 400) - 200 : -280);
+            this.y = Math.random() * (h * 0.85);
+            this.baseY = this.y;
+            this.size = Math.random() * 320 + 180;
+            this.speedX = (Math.random() * 0.45 + 0.2);
+            this.floatSpeedY = (Math.random() * 0.0018 + 0.0006);
+            this.floatPhase = Math.random() * Math.PI * 2;
+            this.opacity = Math.random() * 0.45 + 0.4;
+            this.type = Math.floor(Math.random() * 3);
+            this.rotation = (Math.random() - 0.5) * 0.1;
+            this.parallaxFactor = (this.size / 480) * 0.85 + 0.25;
+            this.goldenRim = Math.random() > 0.35;
+          };
+
+          this.reset(false);
+        }
+
+        for (var i = 0; i < 35; i++) {
+          clouds.push(new CloudParticle(true));
+        }
+
+        function spawnCloudPuffCluster(x, y) {
+          for (var p = 0; p < 8; p++) {
+            var angle = Math.random() * Math.PI * 2;
+            var dist = Math.random() * 40;
+            cloudPuffs.push({
+              x: x + Math.cos(angle) * dist,
+              y: y + Math.sin(angle) * dist,
+              vx: (Math.cos(angle) * (Math.random() * 1.6 + 0.6)),
+              vy: (Math.sin(angle) * (Math.random() * 1.6 + 0.6)) - 0.5,
+              radius: Math.random() * 45 + 25,
+              maxRadius: Math.random() * 95 + 65,
+              alpha: 0.85,
+              life: 1.0,
+              decay: Math.random() * 0.015 + 0.01
+            });
+          }
+        }
+
+        function drawProceduralBrightCloud(ctx, x, y, size, opacity, goldenRim) {
+          ctx.save();
+          ctx.translate(x, y);
+
+          var auraGrad = ctx.createRadialGradient(0, 0, size * 0.1, 0, 0, size * 0.85);
+          if (goldenRim) {
+            auraGrad.addColorStop(0, 'rgba(255, 245, 200, ' + (opacity * 0.45) + ')');
+            auraGrad.addColorStop(0.5, 'rgba(180, 220, 255, ' + (opacity * 0.3) + ')');
+            auraGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+          } else {
+            auraGrad.addColorStop(0, 'rgba(220, 240, 255, ' + (opacity * 0.5) + ')');
+            auraGrad.addColorStop(0.6, 'rgba(140, 200, 255, ' + (opacity * 0.25) + ')');
+            auraGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+          }
+
+          ctx.fillStyle = auraGrad;
+          ctx.beginPath();
+          ctx.arc(0, 0, size * 0.8, 0, Math.PI * 2);
+          ctx.fill();
+
+          var puffs = [
+            { dx: -size * 0.25, dy: size * 0.05, r: size * 0.32 },
+            { dx: 0, dy: -size * 0.1, r: size * 0.42 },
+            { dx: size * 0.25, dy: size * 0.08, r: size * 0.3 },
+            { dx: -size * 0.1, dy: size * 0.12, r: size * 0.28 },
+            { dx: size * 0.15, dy: -size * 0.05, r: size * 0.35 }
+          ];
+
+          for (var i = 0; i < puffs.length; i++) {
+            var p = puffs[i];
+            var puffGrad = ctx.createRadialGradient(
+              p.dx - p.r * 0.2, p.dy - p.r * 0.3, p.r * 0.05,
+              p.dx, p.dy, p.r
+            );
+
+            if (goldenRim) {
+              puffGrad.addColorStop(0, 'rgba(255, 255, 255, ' + (opacity * 0.98) + ')');
+              puffGrad.addColorStop(0.5, 'rgba(255, 248, 220, ' + (opacity * 0.8) + ')');
+              puffGrad.addColorStop(0.85, 'rgba(195, 225, 255, ' + (opacity * 0.45) + ')');
+              puffGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            } else {
+              puffGrad.addColorStop(0, 'rgba(255, 255, 255, ' + (opacity * 0.98) + ')');
+              puffGrad.addColorStop(0.55, 'rgba(230, 245, 255, ' + (opacity * 0.75) + ')');
+              puffGrad.addColorStop(0.85, 'rgba(170, 215, 255, ' + (opacity * 0.4) + ')');
+              puffGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            }
+
+            ctx.fillStyle = puffGrad;
+            ctx.beginPath();
+            ctx.arc(p.dx, p.dy, p.r, 0, Math.PI * 2);
+            ctx.fill();
+          }
+
+          ctx.restore();
+        }
+
+        var lastTime = performance.now();
+
+        function renderBrightClouds(timestamp) {
+          var dt = (timestamp - lastTime) / 1000;
+          lastTime = timestamp;
+          if (dt > 0.1) dt = 0.1;
+
+          mouseX += (targetMouseX - mouseX) * 0.05;
+          mouseY += (targetMouseY - mouseY) * 0.05;
+
+          var w = window.innerWidth;
+          var h = window.innerHeight;
+          var dpr = window.devicePixelRatio || 1;
+
+          cCtx.clearRect(0, 0, cCanvas.width, cCanvas.height);
+
+          var currentMode = cloudModes[cloudModeIndex];
+          if (currentMode.count > 0) {
+            cCtx.save();
+            cCtx.scale(dpr, dpr);
+
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            var activeCount = Math.min(clouds.length, currentMode.count);
+            for (var i = 0; i < activeCount; i++) {
+              var cloud = clouds[i];
+
+              cloud.x += cloud.speedX * currentMode.speedScale * (1 + cloud.parallaxFactor * 0.5);
+              cloud.floatPhase += cloud.floatSpeedY;
+              var floatOffsetY = Math.sin(cloud.floatPhase) * 18;
+
+              var mouseOffsetX = (mouseX - w / 2) * 0.03 * cloud.parallaxFactor;
+              var mouseOffsetY = (mouseY - h / 2) * 0.02 * cloud.parallaxFactor;
+              var scrollOffsetY = -scrollTop * 0.15 * cloud.parallaxFactor;
+
+              var drawX = cloud.x + mouseOffsetX;
+              var drawY = cloud.baseY + floatOffsetY + mouseOffsetY + scrollOffsetY;
+
+              if (drawX - cloud.size > w + 120) {
+                cloud.reset(true);
+              }
+
+              var renderOpacity = cloud.opacity * currentMode.opacityMultiplier;
+              if (cloudModeIndex === 2) {
+                renderOpacity *= 1.15;
+              }
+
+              if (cloud.type === 0 && cloudImg1.complete && cloudImg1.naturalWidth > 0) {
+                cCtx.save();
+                cCtx.globalAlpha = Math.min(1.0, renderOpacity * 0.9);
+                cCtx.translate(drawX, drawY);
+                cCtx.rotate(cloud.rotation);
+                cCtx.drawImage(cloudImg1, -cloud.size * 0.5, -cloud.size * 0.5, cloud.size, cloud.size * 0.7);
+                cCtx.restore();
+              } else if (cloud.type === 1 && cloudImg2.complete && cloudImg2.naturalWidth > 0) {
+                cCtx.save();
+                cCtx.globalAlpha = Math.min(1.0, renderOpacity * 0.95);
+                cCtx.translate(drawX, drawY);
+                cCtx.rotate(cloud.rotation * 1.5);
+                cCtx.drawImage(cloudImg2, -cloud.size * 0.6, -cloud.size * 0.4, cloud.size * 1.2, cloud.size * 0.75);
+                cCtx.restore();
+              } else {
+                drawProceduralBrightCloud(cCtx, drawX, drawY, cloud.size, renderOpacity, cloud.goldenRim || cloudModeIndex === 2);
+              }
+            }
+
+            for (var k = cloudPuffs.length - 1; k >= 0; k--) {
+              var puff = cloudPuffs[k];
+              puff.x += puff.vx;
+              puff.y += puff.vy;
+              puff.radius += (puff.maxRadius - puff.radius) * 0.08;
+              puff.life -= puff.decay;
+
+              if (puff.life <= 0) {
+                cloudPuffs.splice(k, 1);
+                continue;
+              }
+
+              var puffGrad = cCtx.createRadialGradient(
+                puff.x, puff.y, puff.radius * 0.1,
+                puff.x, puff.y, puff.radius
+              );
+              var currentAlpha = puff.life * puff.alpha * currentMode.opacityMultiplier;
+              puffGrad.addColorStop(0, 'rgba(255, 255, 255, ' + currentAlpha + ')');
+              puffGrad.addColorStop(0.6, 'rgba(200, 235, 255, ' + (currentAlpha * 0.6) + ')');
+              puffGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
+              cCtx.fillStyle = puffGrad;
+              cCtx.beginPath();
+              cCtx.arc(puff.x, puff.y, puff.radius, 0, Math.PI * 2);
+              cCtx.fill();
+            }
+
+            cCtx.restore();
+          }
+
+          requestAnimationFrame(renderBrightClouds);
+        }
+
+        requestAnimationFrame(renderBrightClouds);
+
+        window.toggleCloudMode = function () {
+          cloudModeIndex = (cloudModeIndex + 1) % cloudModes.length;
+          var mode = cloudModes[cloudModeIndex];
+          var btn = document.getElementById('toggle-clouds-btn');
+          if (btn) {
+            btn.innerHTML = '<span class="cloud-icon">☁</span> Bright Clouds: ' + mode.name;
+          }
+        };
+
+        window.toggleMobileMenu = function () {
+          var btn = document.getElementById('mobile-nav-btn');
+          var drawer = document.getElementById('mobile-drawer');
+          var backdrop = document.getElementById('mobile-backdrop');
+
+          if (btn && drawer) {
+            btn.classList.toggle('open');
+            drawer.classList.toggle('open');
+            if (backdrop) backdrop.classList.toggle('show');
+
+            if (drawer.classList.contains('open')) {
+              document.body.style.overflow = 'hidden';
+            } else {
+              document.body.style.overflow = '';
+            }
+          }
+        };
+
+      })();
 
     })();
   </script>
