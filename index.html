@@ -267,18 +267,14 @@
       line-height: 1.08;
       letter-spacing: -1px;
       color: #FFFFFF;
-      text-shadow: 0 4px 30px rgba(0, 0, 0, 1), 0 0 20px rgba(0, 0, 0, 0.95);
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
       margin-bottom: 20px;
       max-width: 920px;
-      filter: drop-shadow(0 6px 20px rgba(0,0,0,1));
     }
 
     .hero-title span {
-      background: linear-gradient(135deg, var(--accent) 0%, #FF8866 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 3px 14px rgba(0,0,0,0.9));
+      color: var(--accent);
+      text-shadow: 0 0 20px var(--accent-glow), 0 4px 20px rgba(0, 0, 0, 0.9);
     }
 
     .hero-subtitle {
@@ -1653,12 +1649,6 @@
     </ul>
 
     <div class="nav-actions">
-      <button id="toggle-glass-btn" class="clouds-toggle-pill" onclick="window.toggleGlassTransparency()">
-        <span class="cloud-icon">💎</span> Glass: Translucent (35%)
-      </button>
-      <button id="toggle-clouds-btn" class="clouds-toggle-pill hide-on-mobile" onclick="window.toggleCloudMode()">
-        <span class="cloud-icon">☁</span> Clouds: Vivid
-      </button>
       <a href="mailto:saivardhanreddy313@gmail.com" class="nav-cta hide-on-mobile">Contact Me</a>
 
       <!-- Mobile & iPad Hamburger Toggle Button -->
@@ -1695,17 +1685,7 @@
   <canvas id="frame-canvas"></canvas>
   <div class="canvas-overlay"></div>
 
-  <!-- Spatial Vision Pro Left Vertical Rail Dock -->
-  <aside class="spatial-side-dock hide-on-mobile">
-    <a href="#about" class="spatial-dock-item" data-tooltip="About SVR313">👤</a>
-    <a href="#skills" class="spatial-dock-item" data-tooltip="Core Competencies">⚡</a>
-    <a href="#mindset" class="spatial-dock-item" data-tooltip="Mindset & Focus">🧠</a>
-    <a href="#intellectual" class="spatial-dock-item" data-tooltip="AI Research">🔬</a>
-    <a href="#experience" class="spatial-dock-item" data-tooltip="Work Experience">💼</a>
-    <a href="#education" class="spatial-dock-item" data-tooltip="Education">🎓</a>
-    <a href="#certificates" class="spatial-dock-item" data-tooltip="Certificates">📜</a>
-    <a href="#contact" class="spatial-dock-item" data-tooltip="Contact Me">✉</a>
-  </aside>
+
 
   <!-- Main Scrollable Content Area -->
   <div class="scroll-container">
@@ -1725,22 +1705,8 @@
       </div>
     </section>
 
-    <!-- Portfolio Ground Content (Reveals on Scroll inside Master Spatial Window) -->
+    <!-- Portfolio Ground Content (Reveals on Scroll) -->
     <main class="portfolio-wrapper">
-
-      <!-- Spatial Top Address & Utility Window Bar -->
-      <div class="spatial-window-bar">
-        <div class="spatial-window-title">
-          <span style="color: var(--accent); font-size: 1.1rem;">🔒</span>
-          <span>portfolio.svr313.com</span>
-          <span style="color: rgba(255,255,255,0.4); margin: 0 4px;">•</span>
-          <span style="color: var(--text-dim); font-size: 0.78rem;">Spatial Health & AI Systems Dashboard</span>
-        </div>
-        <div class="spatial-window-controls">
-          <span style="font-size: 0.76rem; color: rgba(255,255,255,0.7); font-family: monospace;">24°C / UK & IND</span>
-          <span style="font-size: 0.76rem; color: var(--accent); font-weight: 700;">● Live</span>
-        </div>
-      </div>
 
       <!-- ABOUT SECTION WITH HERO PORTRAIT -->
       <section id="about" class="glass-card">
@@ -2180,17 +2146,6 @@
           </form>
         </div>
     </main>
-
-    <!-- Spatial Floating Bottom Toolbar Dock (Vision Pro Toolbar) -->
-    <div class="spatial-bottom-dock">
-      <a href="#about" class="spatial-bottom-pill">About</a>
-      <a href="#skills" class="spatial-bottom-pill">Skills</a>
-      <a href="#mindset" class="spatial-bottom-pill">Mindset</a>
-      <a href="#intellectual" class="spatial-bottom-pill">AI Research</a>
-      <a href="#certificates" class="spatial-bottom-pill">Certificates</a>
-      <a href="#contact" class="spatial-bottom-pill">Contact</a>
-      <a href="#" onclick="scrollToTop()" class="spatial-bottom-action" title="Scroll to Top">↑</a>
-    </div>
 
     <!-- Footer / Contact Section -->
     <footer class="site-footer">
