@@ -33,9 +33,9 @@
 
     :root {
       --bg-dark: #0f172a;
-      --card-bg: rgba(10, 14, 26, 0.05);
-      --card-hover: rgba(20, 26, 44, 0.18);
-      --card-opacity-val: 0.05;
+      --card-bg: rgba(10, 14, 26, 0.35);
+      --card-hover: rgba(20, 26, 44, 0.45);
+      --card-opacity-val: 0.35;
       --accent: #FF5533;
       --accent-glow: rgba(255, 85, 51, 0.5);
       --text-main: #FFFFFF;
@@ -388,9 +388,9 @@
 
     /* Cards & Layout Grid */
     .glass-card {
-      background: rgba(10, 14, 26, var(--card-opacity-val, 0.05));
-      -webkit-backdrop-filter: blur(1.5px);
-      backdrop-filter: blur(1.5px);
+      background: rgba(10, 14, 26, var(--card-opacity-val, 0.35));
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
       border: 1px solid rgba(255, 255, 255, 0.22);
       border-radius: 16px;
       padding: 36px;
@@ -400,16 +400,16 @@
     }
 
     .glass-card:hover {
-      background: rgba(20, 26, 44, calc(var(--card-opacity-val, 0.05) + 0.12));
+      background: rgba(20, 26, 44, calc(var(--card-opacity-val, 0.35) + 0.10));
       border-color: var(--border-accent);
       transform: translateY(-4px);
       box-shadow: 0 14px 38px rgba(0, 0, 0, 0.35), 0 0 25px var(--accent-glow);
     }
 
     #about.glass-card {
-      background: rgba(10, 14, 26, var(--card-opacity-val, 0.05));
-      -webkit-backdrop-filter: blur(1.5px);
-      backdrop-filter: blur(1.5px);
+      background: rgba(10, 14, 26, var(--card-opacity-val, 0.35));
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
       border: 1px solid rgba(255, 255, 255, 0.28);
       box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 85, 51, 0.15);
     }
@@ -504,9 +504,9 @@
     }
 
     .mindset-card {
-      background: rgba(10, 14, 26, var(--card-opacity-val, 0.05));
-      -webkit-backdrop-filter: blur(1.5px);
-      backdrop-filter: blur(1.5px);
+      background: rgba(10, 14, 26, var(--card-opacity-val, 0.35));
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
       border: 1px solid var(--border-color);
       border-radius: 16px;
       overflow: hidden;
@@ -608,9 +608,9 @@
     }
 
     .intel-card {
-      background: rgba(10, 14, 26, var(--card-opacity-val, 0.05));
-      -webkit-backdrop-filter: blur(1.5px);
-      backdrop-filter: blur(1.5px);
+      background: rgba(10, 14, 26, var(--card-opacity-val, 0.35));
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
       border: 1px solid var(--border-color);
       border-radius: 14px;
       padding: 28px;
@@ -677,9 +677,9 @@
     }
 
     .skill-cat-card {
-      background: rgba(10, 14, 26, var(--card-opacity-val, 0.05));
-      -webkit-backdrop-filter: blur(1.5px);
-      backdrop-filter: blur(1.5px);
+      background: rgba(10, 14, 26, var(--card-opacity-val, 0.35));
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
       border: 1px solid var(--border-color);
       border-radius: 12px;
       padding: 28px;
@@ -789,9 +789,9 @@
     }
 
     .cert-card {
-      background: rgba(10, 14, 26, var(--card-opacity-val, 0.05));
-      -webkit-backdrop-filter: blur(1.5px);
-      backdrop-filter: blur(1.5px);
+      background: rgba(10, 14, 26, var(--card-opacity-val, 0.35));
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
       border: 1px solid var(--border-color);
       border-radius: 12px;
       padding: 22px;
@@ -853,9 +853,9 @@
     }
 
     .contact-info-card {
-      background: rgba(10, 14, 26, var(--card-opacity-val, 0.05));
-      -webkit-backdrop-filter: blur(1.5px);
-      backdrop-filter: blur(1.5px);
+      background: rgba(10, 14, 26, var(--card-opacity-val, 0.35));
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
       border: 1px solid var(--border-color);
       border-radius: 14px;
       padding: 22px;
@@ -1503,7 +1503,7 @@
 
     <div class="nav-actions">
       <button id="toggle-glass-btn" class="clouds-toggle-pill" onclick="window.toggleGlassTransparency()">
-        <span class="cloud-icon">💎</span> Glass: Bare Glass (5%)
+        <span class="cloud-icon">💎</span> Glass: Translucent (35%)
       </button>
       <button id="toggle-clouds-btn" class="clouds-toggle-pill hide-on-mobile" onclick="window.toggleCloudMode()">
         <span class="cloud-icon">☁</span> Clouds: Vivid
@@ -2573,10 +2573,9 @@
 
         var glassModeIndex = 0;
         var glassModes = [
-          { name: 'Bare Glass (5%)', opacity: 0.05 },
-          { name: 'Ultra Clear (12%)', opacity: 0.12 },
-          { name: 'Translucent (30%)', opacity: 0.30 },
-          { name: 'Medium Glass (60%)', opacity: 0.60 }
+          { name: 'Translucent (35%)', opacity: 0.35 },
+          { name: 'Soft Glass (30%)', opacity: 0.30 },
+          { name: 'Medium Glass (40%)', opacity: 0.40 }
         ];
 
         window.toggleGlassTransparency = function () {
