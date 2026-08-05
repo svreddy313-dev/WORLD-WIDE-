@@ -2110,9 +2110,8 @@
         var dy = (cH - dh) * 0.5;
 
         ctx.globalAlpha = opacity;
-        ctx.filter = 'brightness(1.50) contrast(1.10) saturate(1.10)';
-        ctx.drawImage(img, 0, 0, iW, iH, dx, dy, dw, dh);
         ctx.filter = 'none';
+        ctx.drawImage(img, 0, 0, iW, iH, dx, dy, dw, dh);
       }
 
       function renderAtPosition(pos) {
