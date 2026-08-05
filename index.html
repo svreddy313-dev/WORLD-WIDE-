@@ -130,6 +130,104 @@
       100% { transform: translateY(-3px) scale(1.1); }
     }
 
+    /* God of Love (Cupid) Peeping Feature */
+    .god-of-love-container {
+      position: fixed;
+      z-index: 9999;
+      pointer-events: auto;
+      cursor: pointer;
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+      filter: drop-shadow(0 8px 25px rgba(255, 85, 51, 0.4));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .god-of-love-container.peep-left {
+      left: 0;
+      top: 35%;
+      transform: translateX(-110%) rotate(-15deg);
+    }
+    .god-of-love-container.peep-left.active {
+      transform: translateX(10px) rotate(5deg);
+    }
+
+    .god-of-love-container.peep-right {
+      right: 0;
+      top: 45%;
+      transform: translateX(110%) rotate(15deg);
+    }
+    .god-of-love-container.peep-right.active {
+      transform: translateX(-10px) rotate(-5deg);
+    }
+
+    .god-of-love-container.peep-top {
+      top: 0;
+      left: 60%;
+      transform: translateY(-110%) rotate(180deg);
+    }
+    .god-of-love-container.peep-top.active {
+      transform: translateY(10px) rotate(180deg);
+    }
+
+    .god-of-love-container.peep-bottom {
+      bottom: 0;
+      left: 30%;
+      transform: translateY(110%);
+    }
+    .god-of-love-container.peep-bottom.active {
+      transform: translateY(-10px);
+    }
+
+    .cupid-body {
+      animation: floatLove 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatLove {
+      0% { transform: translateY(0) rotate(-3deg); }
+      100% { transform: translateY(-8px) rotate(4deg); }
+    }
+
+    .cupid-speech-bubble {
+      position: absolute;
+      background: rgba(10, 14, 26, 0.92);
+      color: #FFF;
+      border: 1px solid var(--accent);
+      padding: 6px 14px;
+      border-radius: 16px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      white-space: nowrap;
+      box-shadow: 0 6px 20px rgba(255, 85, 51, 0.35);
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .god-of-love-container:hover .cupid-speech-bubble,
+    .cupid-speech-bubble.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Floating Heart Particles */
+    .love-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 10000;
+      font-size: 1.4rem;
+      animation: loveRise 2.5s ease-out forwards;
+      filter: drop-shadow(0 0 8px rgba(255, 23, 68, 0.8));
+    }
+
+    @keyframes loveRise {
+      0% { opacity: 1; transform: translate(0, 0) scale(0.6); }
+      50% { opacity: 0.9; transform: translate(var(--dx), -40px) scale(1.2) rotate(15deg); }
+      100% { opacity: 0; transform: translate(calc(var(--dx) * 1.5), -90px) scale(1.5) rotate(-20deg); }
+    }
+
     /* Glowing Scroll Progress Bar */
     .scroll-progress-bar {
       position: fixed;
@@ -141,6 +239,211 @@
       z-index: 1000;
       transition: width 0.1s ease-out;
       box-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    /* God of Love (Cupid) Peeping Feature CSS */
+    .god-of-love-container {
+      position: fixed;
+      z-index: 9999;
+      pointer-events: auto;
+      cursor: pointer;
+      transition: transform 0.7s cubic-bezier(0.34, 1.4, 0.64, 1), opacity 0.4s ease;
+      filter: drop-shadow(0 8px 25px rgba(255, 85, 51, 0.4));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+    }
+
+    .god-of-love-container.peep-left {
+      left: 0;
+      top: 35%;
+      transform: translateX(-110%) rotate(-15deg);
+    }
+    .god-of-love-container.peep-left.active {
+      transform: translateX(12px) rotate(6deg);
+    }
+
+    .god-of-love-container.peep-right {
+      right: 0;
+      top: 45%;
+      transform: translateX(110%) rotate(15deg);
+    }
+    .god-of-love-container.peep-right.active {
+      transform: translateX(-12px) rotate(-6deg);
+    }
+
+    .god-of-love-container.peep-top {
+      top: 0;
+      left: 55%;
+      transform: translateY(-110%) rotate(180deg);
+    }
+    .god-of-love-container.peep-top.active {
+      transform: translateY(12px) rotate(180deg);
+    }
+
+    .god-of-love-container.peep-bottom {
+      bottom: 0;
+      left: 35%;
+      transform: translateY(110%);
+    }
+    .god-of-love-container.peep-bottom.active {
+      transform: translateY(-12px);
+    }
+
+    .cupid-body {
+      animation: floatLove 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatLove {
+      0% { transform: translateY(0) rotate(-3deg); }
+      100% { transform: translateY(-8px) rotate(4deg); }
+    }
+
+    .cupid-speech-bubble {
+      position: absolute;
+      background: rgba(10, 14, 26, 0.95);
+      color: #FFF;
+      border: 1.5px solid var(--accent);
+      padding: 6px 14px;
+      border-radius: 16px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      white-space: nowrap;
+      box-shadow: 0 6px 20px rgba(255, 85, 51, 0.45);
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.3s ease;
+      pointer-events: none;
+      top: -35px;
+    }
+
+    .god-of-love-container:hover .cupid-speech-bubble,
+    .cupid-speech-bubble.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .love-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 10000;
+      font-size: 1.4rem;
+      animation: loveRise 2.2s ease-out forwards;
+      filter: drop-shadow(0 0 8px rgba(255, 23, 68, 0.8));
+    }
+
+    @keyframes loveRise {
+      0% { opacity: 1; transform: translate(0, 0) scale(0.6); }
+      50% { opacity: 0.9; transform: translate(var(--dx), -40px) scale(1.2) rotate(15deg); }
+      100% { opacity: 0; transform: translate(calc(var(--dx) * 1.5), -90px) scale(1.5) rotate(-20deg); }
+    }
+
+    /* God of Love (Cupid) Peeping Feature */
+    .god-of-love-container {
+      position: fixed;
+      z-index: 9999;
+      pointer-events: auto;
+      cursor: pointer;
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+      filter: drop-shadow(0 8px 25px rgba(255, 85, 51, 0.4));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .god-of-love-container.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .god-of-love-container.peep-left {
+      left: 0;
+      top: 35%;
+      transform: translateX(-110%) rotate(-15deg);
+    }
+    .god-of-love-container.peep-left.active {
+      transform: translateX(12px) rotate(5deg);
+    }
+
+    .god-of-love-container.peep-right {
+      right: 0;
+      top: 45%;
+      transform: translateX(110%) rotate(15deg);
+    }
+    .god-of-love-container.peep-right.active {
+      transform: translateX(-12px) rotate(-5deg);
+    }
+
+    .god-of-love-container.peep-top {
+      top: 0;
+      left: 60%;
+      transform: translateY(-110%) rotate(180deg);
+    }
+    .god-of-love-container.peep-top.active {
+      transform: translateY(12px) rotate(180deg);
+    }
+
+    .god-of-love-container.peep-bottom {
+      bottom: 0;
+      left: 30%;
+      transform: translateY(110%);
+    }
+    .god-of-love-container.peep-bottom.active {
+      transform: translateY(-12px);
+    }
+
+    .cupid-body {
+      animation: floatLove 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatLove {
+      0% { transform: translateY(0) rotate(-3deg); }
+      100% { transform: translateY(-8px) rotate(4deg); }
+    }
+
+    .cupid-speech-bubble {
+      position: absolute;
+      background: rgba(10, 14, 26, 0.92);
+      color: #FFF;
+      border: 1px solid var(--accent);
+      padding: 7px 16px;
+      border-radius: 18px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      white-space: nowrap;
+      box-shadow: 0 6px 20px rgba(255, 85, 51, 0.35);
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.3s ease;
+      pointer-events: none;
+      top: -35px;
+    }
+
+    .god-of-love-container:hover .cupid-speech-bubble,
+    .cupid-speech-bubble.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Floating Heart Particles */
+    .love-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 10000;
+      font-size: 1.4rem;
+      animation: loveRise 2.5s ease-out forwards;
+      filter: drop-shadow(0 0 8px rgba(255, 23, 68, 0.8));
+    }
+
+    @keyframes loveRise {
+      0% { opacity: 1; transform: translate(0, 0) scale(0.6); }
+      50% { opacity: 0.9; transform: translate(var(--dx), -40px) scale(1.2) rotate(15deg); }
+      100% { opacity: 0; transform: translate(calc(var(--dx) * 1.5), -90px) scale(1.5) rotate(-20deg); }
     }
 
     /* Fixed Top Header / Navigation - Crisp High Contrast */
@@ -260,6 +563,22 @@
       text-shadow: 0 2px 10px rgba(0, 0, 0, 1);
     }
 
+    .hero-glass-card {
+      background: rgba(10, 14, 26, 0.45);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 28px;
+      padding: 40px 48px;
+      max-width: 960px;
+      margin: 0 auto 20px auto;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45), inset 0 1px 1.5px rgba(255, 255, 255, 0.35);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
     .hero-title {
       font-family: 'Outfit', sans-serif;
       font-size: clamp(2.8rem, 6.5vw, 5.5rem);
@@ -267,14 +586,17 @@
       line-height: 1.08;
       letter-spacing: -1px;
       color: #FFFFFF;
-      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
       margin-bottom: 20px;
       max-width: 920px;
     }
 
     .hero-title span {
+      background: linear-gradient(135deg, var(--accent) 0%, #FF8866 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
       color: var(--accent);
-      text-shadow: 0 0 20px var(--accent-glow), 0 4px 20px rgba(0, 0, 0, 0.9);
+      display: inline-block;
     }
 
     .hero-subtitle {
@@ -1614,9 +1936,108 @@
         padding: 5px 10px;
       }
 
-      .intel-metrics-grid {
-        grid-template-columns: 1fr;
-      }
+    /* God of Love (Cupid) Peeping Feature */
+    .god-of-love-container {
+      position: fixed;
+      z-index: 9999;
+      pointer-events: auto;
+      cursor: pointer;
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+      filter: drop-shadow(0 8px 25px rgba(255, 85, 51, 0.4));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+    }
+
+    .god-of-love-container.peep-left {
+      left: 0;
+      top: 35%;
+      transform: translateX(-110%) rotate(-15deg);
+    }
+    .god-of-love-container.peep-left.active {
+      opacity: 1;
+      transform: translateX(12px) rotate(5deg);
+    }
+
+    .god-of-love-container.peep-right {
+      right: 0;
+      top: 45%;
+      transform: translateX(110%) rotate(15deg);
+    }
+    .god-of-love-container.peep-right.active {
+      opacity: 1;
+      transform: translateX(-12px) rotate(-5deg);
+    }
+
+    .god-of-love-container.peep-top {
+      top: 0;
+      left: 55%;
+      transform: translateY(-110%) rotate(180deg);
+    }
+    .god-of-love-container.peep-top.active {
+      opacity: 1;
+      transform: translateY(12px) rotate(180deg);
+    }
+
+    .god-of-love-container.peep-bottom {
+      bottom: 0;
+      left: 35%;
+      transform: translateY(110%);
+    }
+    .god-of-love-container.peep-bottom.active {
+      opacity: 1;
+      transform: translateY(-12px);
+    }
+
+    .cupid-body {
+      animation: floatLove 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatLove {
+      0% { transform: translateY(0) rotate(-3deg); }
+      100% { transform: translateY(-8px) rotate(4deg); }
+    }
+
+    .cupid-speech-bubble {
+      position: absolute;
+      background: rgba(10, 14, 26, 0.92);
+      color: #FFF;
+      border: 1px solid var(--accent);
+      padding: 6px 14px;
+      border-radius: 16px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      white-space: nowrap;
+      box-shadow: 0 6px 20px rgba(255, 85, 51, 0.35);
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.3s ease;
+      pointer-events: none;
+      top: -36px;
+    }
+
+    .god-of-love-container:hover .cupid-speech-bubble,
+    .cupid-speech-bubble.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Floating Heart Particles */
+    .love-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 10000;
+      font-size: 1.5rem;
+      animation: loveRise 2.5s ease-out forwards;
+      filter: drop-shadow(0 0 8px rgba(255, 23, 68, 0.8));
+    }
+
+    @keyframes loveRise {
+      0% { opacity: 1; transform: translate(0, 0) scale(0.6); }
+      50% { opacity: 0.9; transform: translate(var(--dx), -40px) scale(1.2) rotate(15deg); }
+      100% { opacity: 0; transform: translate(calc(var(--dx) * 1.5), -90px) scale(1.5) rotate(-20deg); }
     }
   </style>
 </head>
@@ -1687,17 +2108,54 @@
 
 
 
+  <!-- Peeping God of Love (Cupid) Element -->
+  <div id="god-of-love" class="god-of-love-container" onclick="window.triggerLoveBurst(event)">
+    <div class="cupid-body">
+      <svg width="90" height="90" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="50" cy="18" rx="18" ry="5" stroke="#FFD700" stroke-width="3.5" fill="none" filter="drop-shadow(0 0 6px #FFD700)" />
+        <path d="M 36 40 C 15 25, 5 45, 25 60 C 10 50, 20 68, 38 56 Z" fill="url(#goldWing)" filter="drop-shadow(0 0 4px rgba(255, 215, 0, 0.6))" />
+        <path d="M 64 40 C 85 25, 95 45, 75 60 C 90 50, 80 68, 62 56 Z" fill="url(#goldWing)" filter="drop-shadow(0 0 4px rgba(255, 215, 0, 0.6))" />
+        <circle cx="50" cy="38" r="16" fill="#FFDFC4" />
+        <circle cx="42" cy="26" r="6" fill="#F4C430" />
+        <circle cx="50" cy="24" r="7" fill="#F4C430" />
+        <circle cx="58" cy="26" r="6" fill="#F4C430" />
+        <circle cx="36" cy="32" r="5" fill="#F4C430" />
+        <circle cx="64" cy="32" r="5" fill="#F4C430" />
+        <circle cx="44" cy="38" r="2" fill="#333" />
+        <path d="M 53 38 Q 56 35 59 38" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round" />
+        <circle cx="41" cy="42" r="3" fill="#FF8899" opacity="0.6" />
+        <circle cx="59" cy="42" r="3" fill="#FF8899" opacity="0.6" />
+        <path d="M 46 44 Q 50 48 54 44" stroke="#D32F2F" stroke-width="2" stroke-linecap="round" fill="none" />
+        <path d="M 40 52 C 40 50, 60 50, 60 52 L 64 72 C 64 75, 36 75, 36 72 Z" fill="#FFF8DC" />
+        <path d="M 50 68 C 45 62, 38 66, 42 74 L 50 82 L 58 74 C 62 66, 55 62, 50 68 Z" fill="url(#heartGrad)" filter="drop-shadow(0 0 8px #FF1744)" />
+        <defs>
+          <linearGradient id="goldWing" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#FFE082" />
+            <stop offset="100%" stop-color="#FFB300" />
+          </linearGradient>
+          <linearGradient id="heartGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#FF5252" />
+            <stop offset="100%" stop-color="#D50000" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <div id="cupid-dialog" class="cupid-speech-bubble">✨ Peeping at you with Love! 💕</div>
+  </div>
+
   <!-- Main Scrollable Content Area -->
   <div class="scroll-container">
 
     <!-- Welcome Scene (Cloud Phase: Top of Scroll) -->
     <section class="hero-scene">
-      <div class="welcome-badge">✦ WELCOME TO MY WORLD - SVR313 ✦</div>
-      <h1 class="hero-title">Sai Vardhan <span>Reddy Banda</span></h1>
-      <p class="hero-subtitle">AI Evaluation Analyst Candidate & Computer Systems Engineering Graduate (2:1 Honours)</p>
-      <div
-        style="margin-top: 14px; color: var(--accent); font-weight: 600; letter-spacing: 1.5px; font-size: 0.92rem; text-transform: uppercase;">
-        ✨ Let's start good things together • More good things ahead! ✨</div>
+      <div class="hero-glass-card">
+        <div class="welcome-badge">✦ WELCOME TO MY WORLD - SVR313 ✦</div>
+        <h1 class="hero-title">Sai Vardhan <span>Reddy Banda</span></h1>
+        <p class="hero-subtitle">AI Evaluation Analyst Candidate & Computer Systems Engineering Graduate (2:1 Honours)</p>
+        <div
+          style="margin-top: 14px; color: var(--accent); font-weight: 600; letter-spacing: 1.5px; font-size: 0.92rem; text-transform: uppercase;">
+          ✨ Let's start good things together • More good things ahead! ✨</div>
+      </div>
 
       <div class="scroll-indicator">
         <span>Scroll to Explore Portfolio</span>
@@ -2165,15 +2623,175 @@
 
   </div>
 
+  <!-- Peeping God of Love (Cupid) Element -->
+  <div id="god-of-love" class="god-of-love-container" onclick="window.triggerLoveBurst(event)">
+    <div class="cupid-body">
+      <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="50" cy="18" rx="18" ry="5" stroke="#FFD700" stroke-width="3.5" fill="none" filter="drop-shadow(0 0 6px #FFD700)" />
+        <path d="M 36 40 C 15 25, 5 45, 25 60 C 10 50, 20 68, 38 56 Z" fill="url(#goldWing)" filter="drop-shadow(0 0 4px rgba(255, 215, 0, 0.6))" />
+        <path d="M 64 40 C 85 25, 95 45, 75 60 C 90 50, 80 68, 62 56 Z" fill="url(#goldWing)" filter="drop-shadow(0 0 4px rgba(255, 215, 0, 0.6))" />
+        <circle cx="50" cy="38" r="16" fill="#FFDFC4" />
+        <circle cx="42" cy="26" r="6" fill="#F4C430" />
+        <circle cx="50" cy="24" r="7" fill="#F4C430" />
+        <circle cx="58" cy="26" r="6" fill="#F4C430" />
+        <circle cx="36" cy="32" r="5" fill="#F4C430" />
+        <circle cx="64" cy="32" r="5" fill="#F4C430" />
+        <circle cx="44" cy="38" r="2" fill="#333" />
+        <path d="M 53 38 Q 56 35 59 38" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round" />
+        <circle cx="41" cy="42" r="3" fill="#FF8899" opacity="0.6" />
+        <circle cx="59" cy="42" r="3" fill="#FF8899" opacity="0.6" />
+        <path d="M 46 44 Q 50 48 54 44" stroke="#D32F2F" stroke-width="2" stroke-linecap="round" fill="none" />
+        <path d="M 40 52 C 40 50, 60 50, 60 52 L 64 72 C 64 75, 36 75, 36 72 Z" fill="#FFF8DC" />
+        <path d="M 50 68 C 45 62, 38 66, 42 74 L 50 82 L 58 74 C 62 66, 55 62, 50 68 Z" fill="url(#heartGrad)" filter="drop-shadow(0 0 8px #FF1744)" />
+        <defs>
+          <linearGradient id="goldWing" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#FFE082" />
+            <stop offset="100%" stop-color="#FFB300" />
+          </linearGradient>
+          <linearGradient id="heartGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#FF5252" />
+            <stop offset="100%" stop-color="#D50000" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <div id="cupid-dialog" class="cupid-speech-bubble">✨ Peeping at you with Love! 💕</div>
+  </div>
+
   <!-- Floating Quick Actions & Toast Notification -->
   <div class="floating-actions">
     <button class="floating-btn" onclick="scrollToTop()" title="Scroll to Top">↑</button>
     <a href="mailto:saivardhanreddy313@gmail.com" class="floating-btn" title="Send Email">✉</a>
   </div>
 
+  <!-- Peeping God of Love (Cupid) Element -->
+  <div id="god-of-love" class="god-of-love-container" onclick="window.triggerLoveBurst(event)">
+    <div class="cupid-body">
+      <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Halo -->
+        <ellipse cx="50" cy="18" rx="18" ry="5" stroke="#FFD700" stroke-width="3.5" fill="none" filter="drop-shadow(0 0 6px #FFD700)" />
+        <!-- Left Golden Wing -->
+        <path d="M 36 40 C 15 25, 5 45, 25 60 C 10 50, 20 68, 38 56 Z" fill="url(#goldWing)" filter="drop-shadow(0 0 4px rgba(255, 215, 0, 0.6))" />
+        <!-- Right Golden Wing -->
+        <path d="M 64 40 C 85 25, 95 45, 75 60 C 90 50, 80 68, 62 56 Z" fill="url(#goldWing)" filter="drop-shadow(0 0 4px rgba(255, 215, 0, 0.6))" />
+        <!-- Cute Angel Head -->
+        <circle cx="50" cy="38" r="16" fill="#FFDFC4" />
+        <!-- Curly Golden Hair -->
+        <circle cx="42" cy="26" r="6" fill="#F4C430" />
+        <circle cx="50" cy="24" r="7" fill="#F4C430" />
+        <circle cx="58" cy="26" r="6" fill="#F4C430" />
+        <circle cx="36" cy="32" r="5" fill="#F4C430" />
+        <circle cx="64" cy="32" r="5" fill="#F4C430" />
+        <!-- Happy Eyes -->
+        <circle cx="44" cy="38" r="2" fill="#333" />
+        <path d="M 53 38 Q 56 35 59 38" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round" />
+        <!-- Blush Cheeks -->
+        <circle cx="41" cy="42" r="3" fill="#FF8899" opacity="0.6" />
+        <circle cx="59" cy="42" r="3" fill="#FF8899" opacity="0.6" />
+        <!-- Smile -->
+        <path d="M 46 44 Q 50 48 54 44" stroke="#D32F2F" stroke-width="2" stroke-linecap="round" fill="none" />
+        <!-- Angel Robe -->
+        <path d="M 40 52 C 40 50, 60 50, 60 52 L 64 72 C 64 75, 36 75, 36 72 Z" fill="#FFF8DC" />
+        <!-- Glowing Red Heart -->
+        <path d="M 50 68 C 45 62, 38 66, 42 74 L 50 82 L 58 74 C 62 66, 55 62, 50 68 Z" fill="url(#heartGrad)" filter="drop-shadow(0 0 8px #FF1744)" />
+        <defs>
+          <linearGradient id="goldWing" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#FFE082" />
+            <stop offset="100%" stop-color="#FFB300" />
+          </linearGradient>
+          <linearGradient id="heartGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#FF5252" />
+            <stop offset="100%" stop-color="#D50000" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <div id="cupid-dialog" class="cupid-speech-bubble">✨ Peeping with Love! 💕</div>
+  </div>
+
   <div id="toast-notify" class="toast-notification">
     <span style="color: var(--accent); font-size: 1.2rem;">✓</span>
     <span id="toast-text">Thank you! Your message has been prepared in your email client.</span>
+  </div>
+
+  <!-- Peeping God of Love (Cupid) Element -->
+  <div id="god-of-love" class="god-of-love-container" onclick="window.triggerLoveBurst(event)" title="Click God of Love!">
+    <div class="cupid-body">
+      <svg width="85" height="85" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="50" cy="18" rx="18" ry="5" stroke="#FFD700" stroke-width="3.5" fill="none" filter="drop-shadow(0 0 6px #FFD700)" />
+        <path d="M 36 40 C 15 25, 5 45, 25 60 C 10 50, 20 68, 38 56 Z" fill="url(#goldWing)" filter="drop-shadow(0 0 4px rgba(255, 215, 0, 0.6))" />
+        <path d="M 64 40 C 85 25, 95 45, 75 60 C 90 50, 80 68, 62 56 Z" fill="url(#goldWing)" filter="drop-shadow(0 0 4px rgba(255, 215, 0, 0.6))" />
+        <circle cx="50" cy="38" r="16" fill="#FFDFC4" />
+        <circle cx="42" cy="26" r="6" fill="#F4C430" />
+        <circle cx="50" cy="24" r="7" fill="#F4C430" />
+        <circle cx="58" cy="26" r="6" fill="#F4C430" />
+        <circle cx="36" cy="32" r="5" fill="#F4C430" />
+        <circle cx="64" cy="32" r="5" fill="#F4C430" />
+        <circle cx="44" cy="38" r="2" fill="#333" />
+        <path d="M 53 38 Q 56 35 59 38" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round" />
+        <circle cx="41" cy="42" r="3" fill="#FF8899" opacity="0.6" />
+        <circle cx="59" cy="42" r="3" fill="#FF8899" opacity="0.6" />
+        <path d="M 46 44 Q 50 48 54 44" stroke="#D32F2F" stroke-width="2" stroke-linecap="round" fill="none" />
+        <path d="M 40 52 C 40 50, 60 50, 60 52 L 64 72 C 64 75, 36 75, 36 72 Z" fill="#FFF8DC" />
+        <path d="M 50 68 C 45 62, 38 66, 42 74 L 50 82 L 58 74 C 62 66, 55 62, 50 68 Z" fill="url(#heartGrad)" filter="drop-shadow(0 0 8px #FF1744)" />
+        <defs>
+          <linearGradient id="goldWing" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#FFE082" />
+            <stop offset="100%" stop-color="#FFB300" />
+          </linearGradient>
+          <linearGradient id="heartGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#FF5252" />
+            <stop offset="100%" stop-color="#D50000" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <div id="cupid-dialog" class="cupid-speech-bubble">✨ Peeping at you with Love! 💕</div>
+  </div>
+
+  <!-- Peeping God of Love (Cupid) Element -->
+  <div id="god-of-love" class="god-of-love-container" onclick="window.triggerLoveBurst(event)">
+    <div class="cupid-body">
+      <svg width="90" height="90" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Halo -->
+        <ellipse cx="50" cy="18" rx="18" ry="5" stroke="#FFD700" stroke-width="3.5" fill="none" filter="drop-shadow(0 0 6px #FFD700)" />
+        <!-- Left Golden Wing -->
+        <path d="M 36 40 C 15 25, 5 45, 25 60 C 10 50, 20 68, 38 56 Z" fill="url(#goldWing)" filter="drop-shadow(0 0 4px rgba(255, 215, 0, 0.6))" />
+        <!-- Right Golden Wing -->
+        <path d="M 64 40 C 85 25, 95 45, 75 60 C 90 50, 80 68, 62 56 Z" fill="url(#goldWing)" filter="drop-shadow(0 0 4px rgba(255, 215, 0, 0.6))" />
+        <!-- Angel Head -->
+        <circle cx="50" cy="38" r="16" fill="#FFDFC4" />
+        <!-- Curly Golden Hair -->
+        <circle cx="42" cy="26" r="6" fill="#F4C430" />
+        <circle cx="50" cy="24" r="7" fill="#F4C430" />
+        <circle cx="58" cy="26" r="6" fill="#F4C430" />
+        <circle cx="36" cy="32" r="5" fill="#F4C430" />
+        <circle cx="64" cy="32" r="5" fill="#F4C430" />
+        <!-- Eyes -->
+        <circle cx="44" cy="38" r="2" fill="#333" />
+        <path d="M 53 38 Q 56 35 59 38" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round" />
+        <!-- Blush Cheeks -->
+        <circle cx="41" cy="42" r="3" fill="#FF8899" opacity="0.6" />
+        <circle cx="59" cy="42" r="3" fill="#FF8899" opacity="0.6" />
+        <!-- Smile -->
+        <path d="M 46 44 Q 50 48 54 44" stroke="#D32F2F" stroke-width="2" stroke-linecap="round" fill="none" />
+        <!-- Little Robe Body -->
+        <path d="M 40 52 C 40 50, 60 50, 60 52 L 64 72 C 64 75, 36 75, 36 72 Z" fill="#FFF8DC" />
+        <!-- Glowing Red Heart -->
+        <path d="M 50 68 C 45 62, 38 66, 42 74 L 50 82 L 58 74 C 62 66, 55 62, 50 68 Z" fill="url(#heartGrad)" filter="drop-shadow(0 0 8px #FF1744)" />
+        <defs>
+          <linearGradient id="goldWing" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#FFE082" />
+            <stop offset="100%" stop-color="#FFB300" />
+          </linearGradient>
+          <linearGradient id="heartGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#FF5252" />
+            <stop offset="100%" stop-color="#D50000" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <div id="cupid-dialog" class="cupid-speech-bubble">✨ Peeping at you with Love! 💕</div>
   </div>
 
   <!-- JavaScript Animation Engine -->
@@ -2747,6 +3365,214 @@
           }
         };
 
+        var messages = [
+          "✨ Peeping at you with Love! 💕",
+          "💖 You're doing amazing today!",
+          "🏹 Sending love & good vibes ✨",
+          "✨ Watching you build great things! 🌟",
+          "💕 More good things ahead! ✨"
+        ];
+
+        var currentPos = '';
+
+        function spawnLoveParticles(x, y, count) {
+          var hearts = ['💖', '💕', '✨', '💘', '💗', '❤️'];
+          for (var i = 0; i < (count || 4); i++) {
+            var p = document.createElement('div');
+            p.className = 'love-particle';
+            p.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+            p.style.left = (x + (Math.random() - 0.5) * 40) + 'px';
+            p.style.top = (y + (Math.random() - 0.5) * 40) + 'px';
+            p.style.setProperty('--dx', ((Math.random() - 0.5) * 60) + 'px');
+            document.body.appendChild(p);
+            setTimeout(function (el) {
+              if (el && el.parentNode) el.parentNode.removeChild(el);
+            }, 2500, p);
+          }
+        }
+
+        function peepOut() {
+          cupid.classList.remove('active');
+          if (currentPos) cupid.classList.remove(currentPos);
+
+          setTimeout(function () {
+            currentPos = positions[Math.floor(Math.random() * positions.length)];
+            var msg = messages[Math.floor(Math.random() * messages.length)];
+            if (dialog) dialog.textContent = msg;
+
+            cupid.classList.add(currentPos);
+
+            setTimeout(function () {
+              cupid.classList.add('active');
+              var rect = cupid.getBoundingClientRect();
+              spawnLoveParticles(rect.left + 45, rect.top + 45, 4);
+
+              setTimeout(function () {
+                cupid.classList.remove('active');
+                setTimeout(peepOut, Math.random() * 6000 + 8000);
+              }, 5000);
+            }, 300);
+          }, 600);
+        }
+
+        window.triggerLoveBurst = function (e) {
+          if (!cupid) return;
+          var rect = cupid.getBoundingClientRect();
+          spawnLoveParticles(rect.left + 45, rect.top + 45, 10);
+          if (dialog) {
+            dialog.textContent = "✨ Spread Love & Good Things! 💕";
+            dialog.classList.add('show');
+            setTimeout(function () { dialog.classList.remove('show'); }, 3000);
+          }
+        };
+
+        setTimeout(peepOut, 3000);
+      })();
+
+      /* ==========================================
+         RANDOM PEEPING GOD OF LOVE (CUPID) ENGINE
+         ========================================== */
+      (function () {
+        var cupid = document.getElementById('god-of-love');
+        var dialog = document.getElementById('cupid-dialog');
+        if (!cupid) return;
+
+        var positions = ['peep-left', 'peep-right', 'peep-top', 'peep-bottom'];
+        var messages = [
+          "✨ Peeping at you with Love! 💕",
+          "💖 You're doing amazing today!",
+          "🏹 Sending love & good vibes ✨",
+          "✨ Watching you build great things! 🌟",
+          "💕 More good things ahead! ✨"
+        ];
+
+        var currentPos = '';
+
+        function spawnLoveParticles(x, y, count) {
+          var hearts = ['💖', '💕', '✨', '💘', '💗', '❤️'];
+          for (var i = 0; i < (count || 4); i++) {
+            var p = document.createElement('div');
+            p.className = 'love-particle';
+            p.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+            p.style.left = (x + (Math.random() - 0.5) * 40) + 'px';
+            p.style.top = (y + (Math.random() - 0.5) * 40) + 'px';
+            p.style.setProperty('--dx', ((Math.random() - 0.5) * 60) + 'px');
+            document.body.appendChild(p);
+            setTimeout(function (el) {
+              if (el && el.parentNode) el.parentNode.removeChild(el);
+            }, 2500, p);
+          }
+        }
+
+        function peepOut() {
+          cupid.classList.remove('active');
+          if (currentPos) cupid.classList.remove(currentPos);
+
+          setTimeout(function () {
+            currentPos = positions[Math.floor(Math.random() * positions.length)];
+            var msg = messages[Math.floor(Math.random() * messages.length)];
+            if (dialog) dialog.textContent = msg;
+
+            cupid.classList.add(currentPos);
+
+            setTimeout(function () {
+              cupid.classList.add('active');
+              var rect = cupid.getBoundingClientRect();
+              spawnLoveParticles(rect.left + 40, rect.top + 40, 4);
+
+              setTimeout(function () {
+                cupid.classList.remove('active');
+                setTimeout(peepOut, Math.random() * 6000 + 7000);
+              }, 5000);
+            }, 300);
+          }, 600);
+        }
+
+        window.triggerLoveBurst = function (e) {
+          if (!cupid) return;
+          var rect = cupid.getBoundingClientRect();
+          spawnLoveParticles(rect.left + 40, rect.top + 40, 10);
+          if (dialog) {
+            dialog.textContent = "✨ Spread Love & Good Things! 💕";
+            dialog.classList.add('show');
+            setTimeout(function () { dialog.classList.remove('show'); }, 3000);
+          }
+        };
+
+        setTimeout(peepOut, 3000);
+      })();
+
+      /* ==========================================
+         RANDOM PEEPING GOD OF LOVE (CUPID) ENGINE
+         ========================================== */
+      (function () {
+        var cupid = document.getElementById('god-of-love');
+        var dialog = document.getElementById('cupid-dialog');
+        if (!cupid) return;
+
+        var positions = ['peep-left', 'peep-right', 'peep-top', 'peep-bottom'];
+        var messages = [
+          "✨ Peeping at you with Love! 💕",
+          "💖 You're doing amazing today!",
+          "🏹 Sending love & good vibes ✨",
+          "✨ Watching you build great things! 🌟",
+          "💕 More good things ahead! ✨"
+        ];
+
+        var currentPos = '';
+
+        function spawnLoveParticles(x, y, count) {
+          var hearts = ['💖', '💕', '✨', '💘', '💗', '❤️'];
+          for (var i = 0; i < (count || 4); i++) {
+            var p = document.createElement('div');
+            p.className = 'love-particle';
+            p.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+            p.style.left = (x + (Math.random() - 0.5) * 40) + 'px';
+            p.style.top = (y + (Math.random() - 0.5) * 40) + 'px';
+            p.style.setProperty('--dx', ((Math.random() - 0.5) * 60) + 'px');
+            document.body.appendChild(p);
+            setTimeout(function (el) {
+              if (el && el.parentNode) el.parentNode.removeChild(el);
+            }, 2500, p);
+          }
+        }
+
+        function peepOut() {
+          cupid.classList.remove('active');
+          if (currentPos) cupid.classList.remove(currentPos);
+
+          setTimeout(function () {
+            currentPos = positions[Math.floor(Math.random() * positions.length)];
+            var msg = messages[Math.floor(Math.random() * messages.length)];
+            if (dialog) dialog.textContent = msg;
+
+            cupid.classList.add(currentPos);
+
+            setTimeout(function () {
+              cupid.classList.add('active');
+              var rect = cupid.getBoundingClientRect();
+              spawnLoveParticles(rect.left + 40, rect.top + 40, 4);
+
+              setTimeout(function () {
+                cupid.classList.remove('active');
+                setTimeout(peepOut, Math.random() * 6000 + 8000);
+              }, 5000);
+            }, 300);
+          }, 600);
+        }
+
+        window.triggerLoveBurst = function (e) {
+          if (!cupid) return;
+          var rect = cupid.getBoundingClientRect();
+          spawnLoveParticles(rect.left + 40, rect.top + 40, 10);
+          if (dialog) {
+            dialog.textContent = "✨ Spread Love & Good Things! 💕";
+            dialog.classList.add('show');
+            setTimeout(function () { dialog.classList.remove('show'); }, 3000);
+          }
+        };
+
+        setTimeout(peepOut, 3500);
       })();
 
     })();
