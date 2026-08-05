@@ -1,0 +1,10 @@
+{
+  "name": "jpg_frames_30fps",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sai Vardhan Reddy Banda (SVR313) Portfolio & HD Frame Animation",
+  "scripts": {
+    "build": "echo 'Static deployment ready'",
+    "start": "echo 'Static deployment ready'"
+  }
+}
