@@ -33,9 +33,9 @@
 
     :root {
       --bg-dark: #0f172a;
-      --card-bg: rgba(10, 14, 26, 0.12);
-      --card-hover: rgba(20, 26, 44, 0.28);
-      --card-opacity-val: 0.12;
+      --card-bg: rgba(10, 14, 26, 0.24);
+      --card-hover: rgba(20, 26, 44, 0.38);
+      --card-opacity-val: 0.24;
       --accent: #FF5533;
       --accent-glow: rgba(255, 85, 51, 0.5);
       --text-main: #FFFFFF;
@@ -406,8 +406,14 @@
       box-shadow: 0 14px 38px rgba(0, 0, 0, 0.35), 0 0 25px var(--accent-glow);
     }
 
-    /* About Section Layout (Inspired by Reference UI) */
-    /* About Section Layout with High-Def Hero Portrait */
+    #about.glass-card {
+      background: rgba(10, 14, 26, max(0.24, var(--card-opacity-val, 0.24)));
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 85, 51, 0.15);
+    }
+
     .about-grid {
       display: grid;
       grid-template-columns: 280px 1fr;
@@ -1493,7 +1499,7 @@
 
     <div class="nav-actions">
       <button id="toggle-glass-btn" class="clouds-toggle-pill" onclick="window.toggleGlassTransparency()">
-        <span class="cloud-icon">💎</span> Glass: Ultra Clear (12%)
+        <span class="cloud-icon">💎</span> Glass: Translucent (24%)
       </button>
       <button id="toggle-clouds-btn" class="clouds-toggle-pill hide-on-mobile" onclick="window.toggleCloudMode()">
         <span class="cloud-icon">☁</span> Clouds: Vivid
@@ -2563,10 +2569,10 @@
 
         var glassModeIndex = 0;
         var glassModes = [
+          { name: 'Translucent (24%)', opacity: 0.24 },
+          { name: 'Medium Glass (45%)', opacity: 0.45 },
           { name: 'Ultra Clear (12%)', opacity: 0.12 },
-          { name: 'Bare Glass (5%)', opacity: 0.05 },
-          { name: 'Translucent (30%)', opacity: 0.30 },
-          { name: 'Medium Glass (60%)', opacity: 0.60 }
+          { name: 'Bare Glass (5%)', opacity: 0.05 }
         ];
 
         window.toggleGlassTransparency = function () {
