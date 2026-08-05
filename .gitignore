@@ -1,0 +1,5 @@
+*.zip
+.DS_Store
+temp_extracted*
+replace_frames.ps1
+process_555.ps1
